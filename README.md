@@ -82,8 +82,7 @@ streamlit run app.py
 1. Sign in at [share.streamlit.io](https://share.streamlit.io/) using GitHub.
 2. Click **Create app** and select this repository.
 3. Choose branch `main` and set the entrypoint to `client/app.py`.
-4. In **Advanced settings**, select Python `3.11`.
-5. Click **Deploy**.
+4. Click **Deploy**.
 
 The app uses the dependencies declared in `requirements.txt` and needs no environment variables.
 
