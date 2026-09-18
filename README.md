@@ -84,7 +84,7 @@ streamlit run app.py
 3. Choose branch `main` and set the entrypoint to `client/app.py`.
 4. Click **Deploy**.
 
-The app uses the dependencies declared in `requirements.txt` and needs no environment variables.
+The app uses the dependencies declared in `requirements.txt`
 
 #### Screenshot :
 ![Streamlit Screenshot](./assets/app_screenshot.png)
