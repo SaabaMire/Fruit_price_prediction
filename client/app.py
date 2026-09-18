@@ -1,14 +1,28 @@
 import streamlit as st
 import pandas as pd
 import joblib
-import numpy as np
+from pathlib import Path
 
 
 # Load Models & Dataset
 
-rf_model = joblib.load("../model/rf_fruit_model.pkl")
-lr_model = joblib.load("../model/lr_fruit_model.pkl")
-df_encoded = pd.read_csv("../dataset/Clean_fruit_dataset_encoded.csv")
+ROOT_DIR = Path(__file__).resolve().parents[1]
+
+
+@st.cache_resource
+def load_models():
+    random_forest = joblib.load(ROOT_DIR / "model" / "rf_fruit_model.pkl")
+    linear_regression = joblib.load(ROOT_DIR / "model" / "lr_fruit_model.pkl")
+    return random_forest, linear_regression
+
+
+@st.cache_data
+def load_dataset():
+    return pd.read_csv(ROOT_DIR / "dataset" / "Clean_fruit_dataset_encoded.csv")
+
+
+rf_model, lr_model = load_models()
+df_encoded = load_dataset()
 
 
 # Streamlit Page Configuration
@@ -127,7 +141,7 @@ fruit_name = st.selectbox(
 season = st.selectbox("Season", ["Spring", "Summer", "Autumn", "Winter"])
 
 origin_type = st.radio("Origin", ["Local", "Imported"], horizontal=True)
-origin = "local" if origin_type == "Local" else "imported"
+origin = origin_type
 
 freshness_score = st.slider(
     "Freshness Score (1 = bad, 10 = very fresh)", 1, 10, 7)

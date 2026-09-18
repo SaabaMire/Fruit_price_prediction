@@ -5,14 +5,6 @@
 This project predicts the **price of fruits** based on their features such as weight, freshness, season, and origin.  
 It was developed as part of the **HamiSkills Machine Learning Track (Week 2)** to practice data preprocessing, regression modeling, evaluation, and Streamlit deployment.
 
-### 🌐 Live Demo
-
-**[Open the Fruit Price Predictor](https://saabamire.github.io/Fruit_price_prediction/)**
-
-The live version runs entirely in the browser using the exported Linear Regression and Random Forest models. It does not need a paid server.
-
----
-
 ### 📖 **Project Overview**
 
 Hami MiniMarket wants to optimize pricing and inventory decisions.  
@@ -58,7 +50,7 @@ Trained and compared:
 | RMSE | ~0.63 | ~0.67 |
 | R² |  0.709 |  0.666 |
 
-The live app includes **both models**, so their predictions can be compared directly.
+The Streamlit app includes **both models**, so their predictions can be compared directly.
 
 ---
 
@@ -85,15 +77,15 @@ cd client
 streamlit run app.py
 ```
 
-### Free GitHub Pages deployment
+### ☁️ Deploy free on Streamlit Community Cloud
 
-The static app is stored in `docs/`. To publish it:
+1. Sign in at [share.streamlit.io](https://share.streamlit.io/) using GitHub.
+2. Click **Create app** and select this repository.
+3. Choose branch `main` and set the entrypoint to `client/app.py`.
+4. In **Advanced settings**, select Python `3.11`.
+5. Click **Deploy**.
 
-1. Open the repository **Settings → Pages**.
-2. Under **Build and deployment**, select **Deploy from a branch**.
-3. Select branch **main**, folder **/docs**, and click **Save**.
-
-No environment variables, build command, or hosting payment is required.
+The app uses the dependencies declared in `requirements.txt` and needs no environment variables.
 
 #### Screenshot :
 ![Streamlit Screenshot](./assets/app_screenshot.png)
@@ -116,15 +108,10 @@ fruit-price-prediction-ML/
 │
 ├── client/
 │   └── app.py           # Streamlit app
-├── docs/                 # Free GitHub Pages web app
-│   ├── index.html
-│   ├── style.css
-│   ├── app.js
-│   └── model.json
 │
 ├── code
-│    ├── fruit_price_prediction.ipynb  # Main notebook
-│    └── export_models.py              # Browser model exporter
+│    └── fruit_price_prediction.ipynb  # Main notebook
+├── requirements.txt      # Deployment dependencies
 └── README.md
 ```
 
