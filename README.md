@@ -5,6 +5,12 @@
 This project predicts the **price of fruits** based on their features such as weight, freshness, season, and origin.  
 It was developed as part of the **HamiSkills Machine Learning Track (Week 2)** to practice data preprocessing, regression modeling, evaluation, and Streamlit deployment.
 
+### 🌐 Live Demo
+
+**[Open the Fruit Price Predictor](https://saabamire.github.io/Fruit_price_prediction/)**
+
+The live version runs entirely in the browser using the exported Linear Regression and Random Forest models. It does not need a paid server.
+
 ---
 
 ### 📖 **Project Overview**
@@ -52,7 +58,7 @@ Trained and compared:
 | RMSE | ~0.63 | ~0.67 |
 | R² |  0.709 |  0.666 |
 
-✅ **Random Forest performed best** and was chosen for deployment.
+The live app includes **both models**, so their predictions can be compared directly.
 
 ---
 
@@ -79,6 +85,16 @@ cd client
 streamlit run app.py
 ```
 
+### Free GitHub Pages deployment
+
+The static app is stored in `docs/`. To publish it:
+
+1. Open the repository **Settings → Pages**.
+2. Under **Build and deployment**, select **Deploy from a branch**.
+3. Select branch **main**, folder **/docs**, and click **Save**.
+
+No environment variables, build command, or hosting payment is required.
+
 #### Screenshot :
 ![Streamlit Screenshot](./assets/app_screenshot.png)
 ![Streamlit Screenshot](./assets/linear.png)
@@ -100,9 +116,15 @@ fruit-price-prediction-ML/
 │
 ├── client/
 │   └── app.py           # Streamlit app
+├── docs/                 # Free GitHub Pages web app
+│   ├── index.html
+│   ├── style.css
+│   ├── app.js
+│   └── model.json
 │
 ├── code
-│    └──fruit_price_prediction.ipynb   # Main notebook
+│    ├── fruit_price_prediction.ipynb  # Main notebook
+│    └── export_models.py              # Browser model exporter
 └── README.md
 ```
 
